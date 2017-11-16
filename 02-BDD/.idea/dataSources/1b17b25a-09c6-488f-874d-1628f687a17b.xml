@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="heritage@127.0.0.1">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="heritage">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="symfony"/>
+    <schema id="7" parent="1" name="test"/>
+    <table id="8" parent="2" name="Categorie"/>
+    <table id="9" parent="2" name="Produit"/>
+    <column id="10" parent="8" name="nomCategorie">
+      <Position>1</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="11" parent="8" name="codeCategorie">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <index id="12" parent="8" name="Categorie_codeCategorie_uindex">
+      <ColNames>codeCategorie</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="13" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>codeCategorie</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="14" parent="8" name="Categorie_codeCategorie_uindex">
+      <ColNames>codeCategorie</ColNames>
+      <UnderlyingIndexName>Categorie_codeCategorie_uindex</UnderlyingIndexName>
+    </key>
+    <column id="15" parent="9" name="codeProduit">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="16" parent="9" name="nomProduit">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="17" parent="9" name="codeCategorie">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="18" parent="9" name="prixProduit">
+      <Position>4</Position>
+      <DataType>float|0</DataType>
+      <DefaultExpression>&apos;42.2&apos;</DefaultExpression>
+    </column>
+    <index id="19" parent="9" name="Produit_Categorie__fk">
+      <ColNames>codeCategorie</ColNames>
+    </index>
+    <index id="20" parent="9" name="Produit_codeProduit_uindex">
+      <ColNames>codeProduit</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="21" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>codeProduit</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="22" parent="9" name="Produit_codeProduit_uindex">
+      <ColNames>codeProduit</ColNames>
+      <UnderlyingIndexName>Produit_codeProduit_uindex</UnderlyingIndexName>
+    </key>
+    <foreign-key id="23" parent="9" name="Produit_Categorie__fk">
+      <ColNames>codeCategorie</ColNames>
+      <RefSchemaName>heritage</RefSchemaName>
+      <RefTableName>Categorie</RefTableName>
+      <RefColNames>codeCategorie</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
