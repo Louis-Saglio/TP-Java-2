@@ -50,6 +50,57 @@ public class Property {
         couleursYeux.add("Vert");
         properties.add(new Property("la couleur des yeux", couleursYeux));
 
+        ArrayList<String> couleurPeau = new ArrayList<>();
+        couleurPeau.add("Noire");
+        couleurPeau.add("Blanche");
+        couleurPeau.add("Rouge");
+        couleurPeau.add("Jaune");
+        couleurPeau.add("Bronzée");
+        properties.add(new Property("la couleur de la peau", couleurPeau));
+
+        ArrayList<String> tailleMain = new ArrayList<>();
+        tailleMain.add("Grande");
+        tailleMain.add("Moyenne");
+        tailleMain.add("Petite");
+        properties.add(new Property("la taille des mains", tailleMain));
+
+        ArrayList<String> sexe = new ArrayList<>();
+        sexe.add("Homme");
+        sexe.add("Femme");
+        properties.add(new Property("le sexe", sexe));
+
+        ArrayList<String> race = new ArrayList<>();
+        race.add("Noire");
+        race.add("Arabe");
+        race.add("Latine");
+        race.add("Germanique");
+        race.add("Sud-asiatique");
+        race.add("Juive");
+        race.add("Amérindienne");
+        race.add("Celtique");
+        race.add("Basque");
+        properties.add(new Property("la race", race));
+
+        ArrayList<String> age = new ArrayList<>();
+        age.add("Jeune");
+        age.add("Mûr");
+        age.add("Vieux");
+        properties.add(new Property("l'âge", age));
+
+        ArrayList<String> corpulence = new ArrayList<>();
+        corpulence.add("Maigre");
+        corpulence.add("Moyen");
+        corpulence.add("Gros");
+        properties.add(new Property("la corpulence", corpulence));
+
         return properties;
+    }
+
+    @Override
+    public String toString() {
+        return "Property{" +
+                "name='" + name + '\'' +
+                ", potentialValues=" + potentialValues +
+                '}';
     }
 }

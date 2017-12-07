@@ -12,23 +12,40 @@ public class Fact {
     }
 
     public String getQuestion() {
-        return "Est-ce que " + this.property + " est " + this.value + " ?";
+        return "Est-ce que " + this.property.getName() + " du sujet est " + this.value + " ?";
     }
 
     public ArrayList<Fact> getContraries() {
         ArrayList<Fact> contraries = new ArrayList<>();
         for (String value : this.property.getPotentialValues()) {
-            contraries.add(new Fact(this.property, value));
+            if (!value.equals(this.value)) {
+                // ci gît le hic !
+                // tous les objets devraient pouvoir accéder aus listes de faits !
+                contraries.add(new Fact(this.property, value));
+            }
         }
         return contraries;
     }
 
-    public static ArrayList<Fact> init() {
+    public static ArrayList<Fact> init(ArrayList<Property> properties) {
         ArrayList<Fact> facts = new ArrayList<>();
-        ArrayList<Property> properties = Property.init();
         for (Property property1 : properties) {
             facts.add(new Fact(property1, property1.getPotentialValues().get(0)));
         }
+        facts.add(new Fact(properties.get(0), properties.get(0).getPotentialValues().get(1)));
         return facts;
+    }
+
+    @Override
+    public String toString() {
+        return property.getName() + " du sujet est " + value;
+    }
+
+    public Property getProperty() {
+        return property;
+    }
+
+    public String getValue() {
+        return value;
     }
 }
