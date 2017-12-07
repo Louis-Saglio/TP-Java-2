@@ -22,4 +22,13 @@ public class Fact {
         }
         return contraries;
     }
+
+    public static ArrayList<Fact> init() {
+        ArrayList<Fact> facts = new ArrayList<>();
+        ArrayList<Property> properties = Property.init();
+        for (Property property1 : properties) {
+            facts.add(new Fact(property1, property1.getPotentialValues().get(0)));
+        }
+        return facts;
+    }
 }

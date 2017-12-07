@@ -1,5 +1,6 @@
 package launches;
 
+import beans.Etudiant;
 import beans.Etudiants;
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -23,12 +24,18 @@ public class TestLectureBeans {
             String code = etudiant.getAttributeValue("code");
             String prenom = etudiant.getChildText("prenom");
             String nom = etudiant.getChildText("nom");
-            System.out.println("- [" + code + "] " + nom + " " + prenom);
+//            System.out.println("- [" + code + "] " + nom + " " + prenom);
+            etudiants.add(new Etudiant(code, nom, prenom));
         }
     }
 
     public static void main(String[] args) throws JDOMException, IOException {
         Etudiants etudiants = new Etudiants();
         new TestLectureBeans(etudiants);
+        for (Etudiant etudiant : etudiants) {
+            System.out.println(etudiant);
+        }
+        Etudiant jo01 = etudiants.getByCode("JO01");
+        System.out.println(jo01);
     }
 }
