@@ -20,7 +20,7 @@ public class Fact {
         for (String value : this.property.getPotentialValues()) {
             if (!value.equals(this.value)) {
                 // ci gît le hic !
-                // tous les objets devraient pouvoir accéder aus listes de faits !
+                // tous les objets devraient pouvoir accéder aux listes de faits !
                 contraries.add(new Fact(this.property, value));
             }
         }
@@ -34,6 +34,10 @@ public class Fact {
         }
         facts.add(new Fact(properties.get(0), properties.get(0).getPotentialValues().get(1)));
         return facts;
+    }
+
+    public boolean equals(Fact fact) {
+        return this.property == fact.property && this.value.equals(fact.value);
     }
 
     @Override

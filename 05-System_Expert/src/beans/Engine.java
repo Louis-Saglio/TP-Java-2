@@ -19,7 +19,7 @@ public class Engine {
 
     private void createReality() {
         this.reality = new ArrayList<>();
-//        this.reality.add(this.potentialFacts.get(0));
+        this.reality.add(this.potentialFacts.get(0));
         this.reality.add(this.potentialFacts.get(1));
         this.reality.add(this.potentialFacts.get(this.potentialFacts.size() - 1));
     }
@@ -40,6 +40,7 @@ public class Engine {
     }
 
     public void scanRules() {
+        System.out.println("\nScan des règles...\n");
         ArrayList<Rule> falseRules = new ArrayList<>();
         for (Rule rule : rules) {
             AnswerEnum answer = rule.scan(reality, error);
@@ -56,9 +57,21 @@ public class Engine {
 
     public static void main(String[] args) {
         Engine engine = new Engine();
+        System.out.println("Liste des faits potentiels");
         System.out.println(engine.potentialFacts);
+        System.out.println("\nListe des faits réels");
         System.out.println(engine.reality);
+        System.out.println("\nListe des faits faux");
+        System.out.println(engine.error);
+        System.out.println("\nListe des règles");
+        System.out.println(engine.rules);
         engine.scanRules();
+        System.out.println("\nListe des faits réels");
+        System.out.println(engine.reality);
+        System.out.println("\nListe des faits faux");
+        System.out.println(engine.error);
+        System.out.println("\nListe des règles");
+        System.out.println(engine.rules);
     }
 
 }

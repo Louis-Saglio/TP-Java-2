@@ -15,10 +15,11 @@ public class Rule {
     public AnswerEnum scan(ArrayList<Fact> reality, ArrayList<Fact> error) {
         for (Fact fact : facts) {
             for (Fact contrary : fact.getContraries()) {
-                System.out.println(contrary);
-                if (reality.contains(contrary)) {
-                    System.out.println(fact.getProperty().getName() + " n'est pas " + fact.getValue() + " mais " + contrary.getValue());
-                    return AnswerEnum.False;
+                for (Fact trueFact : reality) {
+                    if (trueFact.equals(contrary)) {
+                        System.out.println(fact.getProperty().getName() + " n'est pas " + fact.getValue() + " mais " + contrary.getValue());
+                        return AnswerEnum.False;
+                    }
                 }
             }
             if (error.contains(fact)) {
@@ -28,7 +29,7 @@ public class Rule {
                 return AnswerEnum.False;
             } else if (!reality.contains(fact)) {
                 System.out.println(
-                        "La majeure : " + fact.getProperty().getName() + " du sujet est " + fact.getValue() + " est indéterminée"
+                        "La majeure : \"" + fact.getProperty().getName() + " du sujet est " + fact.getValue() + "\" est indéterminée"
                 );
                 return AnswerEnum.Unknown;
             }
