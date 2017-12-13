@@ -1,0 +1,27 @@
+<data>
+    <propositions>
+        <proposition id="1" state="true" property="la couleur des cheveux" value="blond"/>
+        <proposition id="2" state="true" property="la taille du nez" value="grand"/>
+        <proposition id="3" state="false" property="le sexe" value="homme"/>
+        <proposition id="4" state="true" property="la couleur des cheveux" value="noir"/>
+        <proposition id="5" state="true" property="la couleur des yeux" value="bleu"/>
+        <proposition id="6" state="true" property="la race" value="caucasien"/>
+    </propositions>
+    <rules>
+        <rule>
+            <majors>
+                <major proposition="1"/>
+                <major proposition="2"/>
+            </majors>
+            <conclusion proposition="3"/>
+        </rule>
+        <rule>
+            <majors>
+                <major proposition="1"/>
+                <major proposition="5"/>
+            </majors>
+            <conclusion proposition="6"/>
+        </rule>
+    </rules>
+</data>
+
