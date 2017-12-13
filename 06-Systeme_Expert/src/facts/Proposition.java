@@ -18,4 +18,8 @@ public class Proposition {
                 ", id=" + id +
                 '}';
     }
+
+    public int getId() {
+        return id;
+    }
 }

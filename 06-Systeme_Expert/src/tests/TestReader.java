@@ -1,10 +1,13 @@
 package tests;
 
 import data_reader.Reader;
+import org.jdom2.DataConversionException;
 
 public class TestReader {
 
-    public TestReader() {
+    public TestReader() throws DataConversionException {
+        this.testPropositionReader();
+        this.testRuleReader();
     }
 
     public void testPropositionReader() {
@@ -12,12 +15,13 @@ public class TestReader {
         System.out.println(reader.readPropositions());
     }
 
-    public void testRuleReader() {
+    public void testRuleReader() throws DataConversionException {
         Reader reader = new Reader("/home/louis/Projects/Java/TP-Java-2/06-Systeme_Expert/data/rules.xml");
         reader.readPropositions();
+        System.out.println(reader.readRules());
     }
 
-    public static void main(String[] args) {
-        new TestReader().testPropositionReader();
+    public static void main(String[] args) throws DataConversionException {
+        new TestReader();
     }
 }

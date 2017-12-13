@@ -44,10 +44,22 @@ public class Reader extends SAXBuilder{
         return propositions;
     }
 
-    public Rules readRules() {
-        for (Element rule : this.document.getRootElement().getChild("rules").getChildren("rule")) {
-            System.out.println(rule);
+    public Rules readRules() throws DataConversionException {
+
+        Element rules = this.document.getRootElement().getChild("rules");
+
+        for (Element ruleElement : rules.getChildren("rule")) {
+
+            Propositions majors = new Propositions();
+            for (Element majorElement : ruleElement.getChild("majors").getChildren("major")) {
+                majors.add(this.propositions.getById(majorElement.getAttribute("proposition").getIntValue()));
+            }
+
+            Proposition conclusion = this.propositions.getById(ruleElement.getChild("conclusion").getAttribute("proposition").getIntValue());
+
+            Rule rule = new Rule(majors, conclusion);
+            this.rules.add(rule);
         }
-        return rules;
+        return this.rules;
     }
 }
