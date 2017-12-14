@@ -23,5 +23,9 @@
             <conclusion proposition="6"/>
         </rule>
     </rules>
+    <truth>
+        <proposition id="1"/>
+        <proposition id="2"/>
+    </truth>
 </data>
 

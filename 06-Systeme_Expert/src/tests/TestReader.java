@@ -8,6 +8,7 @@ public class TestReader {
     public TestReader() throws DataConversionException {
         this.testPropositionReader();
         this.testRuleReader();
+        this.testTruthReader();
     }
 
     public void testPropositionReader() {
@@ -19,6 +20,12 @@ public class TestReader {
         Reader reader = new Reader("/home/louis/Projects/Java/TP-Java-2/06-Systeme_Expert/data/rules.xml");
         reader.readPropositions();
         System.out.println(reader.readRules());
+    }
+
+    public void testTruthReader() {
+        Reader reader = new Reader("/home/louis/Projects/Java/TP-Java-2/06-Systeme_Expert/data/rules.xml");
+        reader.readPropositions();
+        System.out.println(reader.readTruth());
     }
 
     public static void main(String[] args) throws DataConversionException {

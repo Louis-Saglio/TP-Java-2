@@ -6,6 +6,7 @@ import org.jdom2.input.SAXBuilder;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public class Reader extends SAXBuilder{
 
@@ -61,5 +62,19 @@ public class Reader extends SAXBuilder{
             this.rules.add(rule);
         }
         return this.rules;
+    }
+
+    public Propositions readTruth() {
+        Propositions truth = new Propositions();
+        List<Element> truthElements = this.document.getRootElement().getChild("truth").getChildren("proposition");
+        for (Element element : truthElements) {
+            try {
+                truth.add(this.propositions.getById(element.getAttribute("id").getIntValue()));
+            } catch (DataConversionException e) {
+                System.out.println("Impossible de convertir " + element.getAttribute("id") + " en int");
+                System.exit(1);
+            }
+        }
+        return truth;
     }
 }
