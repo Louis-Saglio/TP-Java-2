@@ -5,9 +5,7 @@ public class Value {
 
     @Override
     public String toString() {
-        return "Value{" +
-                '\'' + name + '\'' +
-                '}';
+        return "Value{" + '\'' + name + '\'' + '}';
     }
 
     public Value(String name) {
