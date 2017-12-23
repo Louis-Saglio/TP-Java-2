@@ -7,11 +7,11 @@ import facts.Values;
 
 public class TestFact {
 
-    public TestFact() {
+    private TestFact() {
         this.testCheck();
     }
 
-    public void testCheck() {
+    private void testCheck() {
         Value value1 = new Value("noir");
         Value value2 = new Value("Blanc");
         Values values = new Values(value1, value2);
