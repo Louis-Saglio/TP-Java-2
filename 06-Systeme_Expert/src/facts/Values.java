@@ -14,4 +14,17 @@ public class Values extends ArrayList<Value> {
             this.add(new Value(string));
         }
     }
+
+    public Values() {
+    }
+
+    public Values filter(Value value) {
+        Values rep = new Values();
+        for (Value value1 : this) {
+            if (value != value1) {
+                rep.add(value1);
+            }
+        }
+        return rep;
+    }
 }
