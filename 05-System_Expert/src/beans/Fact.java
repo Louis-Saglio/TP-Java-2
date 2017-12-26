@@ -19,8 +19,6 @@ public class Fact {
         ArrayList<Fact> contraries = new ArrayList<>();
         for (String value : this.property.getPotentialValues()) {
             if (!value.equals(this.value)) {
-                // ci gît le hic !
-                // tous les objets devraient pouvoir accéder aux listes de faits !
                 contraries.add(new Fact(this.property, value));
             }
         }

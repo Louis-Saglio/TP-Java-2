@@ -19,4 +19,12 @@ public class Fact {
     public String toString() {
         return "Fact{" + property.getName() + " est " + value.getName() + '}';
     }
+
+    public Facts getContraries() {
+        Facts rep = new Facts();
+        for (Value value1 : this.property.filter(this.value)) {
+            rep.add(new Fact(this.property, value1));
+        }
+        return rep;
+    }
 }
