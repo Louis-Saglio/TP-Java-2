@@ -24,4 +24,8 @@ public class Property {
     public String getName() {
         return name;
     }
+
+    public Values filter(Value value) {
+        return this.possibleValues.filter(value);
+    }
 }
