@@ -22,4 +22,13 @@ public class Proposition {
     public int getId() {
         return id;
     }
+
+    public Propositions getContraries() {
+        Propositions propositions = new Propositions();
+        for (Fact contrary : this.fact.getContraries()) {
+            propositions.add(new Proposition(contrary, true, (int) (Math.random() * 999999)));
+//          todo: auto incrément curseur static
+        }
+        return propositions;
+    }
 }
